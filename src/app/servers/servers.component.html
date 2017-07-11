@@ -8,10 +8,13 @@
 <ng-template #noServer>
   <p>No serer is created</p>
 </ng-template>
-<app-server></app-server>
-<app-server></app-server>
+<app-server *ngFor="let server of servers"></app-server>
 <!-- Assignment tasks -->
 <label>User Name</label>
 <input type="text" class="form-control" [(ngModel)]="userName">
 <p>{{ userName }}</p>
 <button class="btn btn-info" [disabled]="userName === ''" (click)="clearUsername()">Check Username</button>
+<!-- Assginment tasks -->
+<button class="btn btn-warning" (click)="performAction()">Display Details</button>
+<p *ngIf="togglePara">Something just like this</p>
+<p *ngFor="let cnt of counterArray; let i = index" [ngStyle]="giveColor(i)" [ngClass]="{textColor: i >= 4}" >{{cnt}}</p>

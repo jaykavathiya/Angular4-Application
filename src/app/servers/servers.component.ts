@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {count} from "rxjs/operator/count";
 
 @Component({
   selector: 'app-servers',
@@ -11,6 +12,10 @@ export class ServersComponent implements OnInit {
   serverName = 'TestName';
   userName = 'Jay';
   serverCreated = false;
+  servers = ['Testserver', 'Testserver 2'];
+  togglePara = true;
+  count = 1;
+  counterArray = [];
 
   constructor() {
     setTimeout(() => {
@@ -23,6 +28,8 @@ export class ServersComponent implements OnInit {
 
   onServerCreation(){
     this.serverCreated = true;
+    this.servers.push(this.serverName);
+    console.log(this.servers);
     this.serverCreationStatus = 'Sever has been created and the server name is:'+ " " + this.serverName;
   }
 
@@ -31,5 +38,17 @@ export class ServersComponent implements OnInit {
   }
   clearUsername(){
     this.userName = '';
+  }
+
+  performAction(){
+    this.togglePara = !this.togglePara;
+    // this.counterArray.push(this.count++);
+    this.counterArray.push(new Date());
+  }
+
+  giveColor(cnt){
+    if(cnt >= 4){
+      return {'backgroundColor':'blue'};
+    }
   }
 }
