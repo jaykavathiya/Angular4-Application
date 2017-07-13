@@ -1,5 +1,12 @@
 <!--The whole content below can be removed with the new code.-->
 <div class="container">
+  <app-cockpit></app-cockpit>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-server-element *ngFor="let serverElement of serverElements" [element]="serverElement"></app-server-element>
+    </div>
+  </div>
   <div class="row">
     <div class="col-xs-12">
       <h3>This is new component</h3>
