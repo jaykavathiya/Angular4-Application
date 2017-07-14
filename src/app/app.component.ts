@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   serverElements = [{type:'server',name: 'Test Server',content: 'This is just a simple test'}];
+  evens: number[] = [];
+  odds: number[] = [];
 
   onServerAdded(serverData:{serverName: string, serverContent: string}){
     this.serverElements.push({
@@ -27,5 +29,14 @@ export class AppComponent {
   }
   onFirstDestroy(){
     this.serverElements.splice(0,1);
+  }
+
+  onStartIncrement(firedNumber : number){
+    if(firedNumber % 2 === 0){
+      this.evens.push(firedNumber);
+    }
+    else{
+      this.odds.push(firedNumber);
+    }
   }
 }

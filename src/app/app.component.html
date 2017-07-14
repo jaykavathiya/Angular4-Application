@@ -1,5 +1,14 @@
-<!--The whole content below can be removed with the new code.-->
 <div class="container">
+  <app-game-control (incrementEmit)="onStartIncrement($event)"></app-game-control>
+  <div class="row">
+    <div class="col-xs-6">
+      <app-odd *ngFor="let odd of odds" [number]="odd"></app-odd>
+    </div>
+    <div class="col-xs-6">
+      <app-even *ngFor="let even of evens" [number]="even"></app-even>
+    </div>
+  </div>
+  <hr>
   <app-cockpit (serverCreated)="onServerAdded($event)" (blueprintCreated)="onBlueprintAdded($event)"></app-cockpit>
   <hr>
   <div class="row">
