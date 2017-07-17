@@ -9,6 +9,10 @@ export class AppComponent {
   serverElements = [{type:'server',name: 'Test Server',content: 'This is just a simple test'}];
   evens: number[] = [];
   odds: number[] = [];
+  evenNumbers=[2,4];
+  oddNumbres=[1,3,5];
+  onlyOdd = false;
+  value = 100;
 
   onServerAdded(serverData:{serverName: string, serverContent: string}){
     this.serverElements.push({
