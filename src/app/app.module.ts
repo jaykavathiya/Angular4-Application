@@ -15,6 +15,10 @@ import { OddComponent } from './odd/odd.component';
 import { BasicHighlightDirective } from './basic-highlight/basic-hightlight.directive';
 import { BetterHighlightDirective } from './better-highlight/better-highlight.directive';
 import { UnlessDirective } from './unless.directive';
+import {NewAccountComponent} from "./new-account/new-account.component";
+import {AccountComponent} from "./account/account.component";
+import {AccountService} from "./account.service";
+import {LoggingService} from "./logging.service";
 
 @NgModule({
   declarations: [
@@ -30,13 +34,15 @@ import { UnlessDirective } from './unless.directive';
     OddComponent,
     BasicHighlightDirective,
     BetterHighlightDirective,
-    UnlessDirective
+    UnlessDirective,
+    NewAccountComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AccountService,LoggingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

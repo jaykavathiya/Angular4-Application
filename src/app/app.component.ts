@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AccountService} from "./account.service";
 
 @Component  ({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   serverElements = [{type:'server',name: 'Test Server',content: 'This is just a simple test'}];
   evens: number[] = [];
   odds: number[] = [];
@@ -13,6 +14,13 @@ export class AppComponent {
   oddNumbres=[1,3,5];
   onlyOdd = false;
   value = 100;
+  accounts:{name:string,status: string}[] = [];
+
+  constructor(private accountService: AccountService){}
+
+  ngOnInit(){
+    this.accounts = this.accountService.accounts;
+  }
 
   onServerAdded(serverData:{serverName: string, serverContent: string}){
     this.serverElements.push({
